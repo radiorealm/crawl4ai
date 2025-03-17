@@ -10,7 +10,8 @@ API_KEY = "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"
 class GrantInfo(BaseModel):
     site: str
     name: str
-    country: str
+    country: List[str]
+    grantor: str
     facts: List[str]
 
 
@@ -22,8 +23,9 @@ INSTRUCTION_TO_LLM = """
 Extract all grants listed on the page as objects with the following fields:
 - 'site': the source URL
 - 'name': the name of the grant
-- 'country': a list of countries where the grant is available. global if worldwide
-- 'facts': a list of various details about the grant
+- 'country': a list of countries where the grant is available. global if worldwide or not mentioned if not mentioned
+- 'grantor': the name of the organization or person who grants the grant
+- 'facts': a list of various details about the grant, like for who, requirements, what it gives and so on.
 """
 
 async def main():
