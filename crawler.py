@@ -5,7 +5,7 @@ from typing import List
 from crawl4ai import *
 from pydantic import BaseModel
 
-API_KEY = "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"
+API_KEY = "you should put your api key here"
 
 class GrantInfo(BaseModel):
     site: str
